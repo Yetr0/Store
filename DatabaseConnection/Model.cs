@@ -17,8 +17,8 @@ namespace DatabaseConnection
         public int Id { get; set; }
         public string Title { get; set; }
         public string ImageURL { get; set; }
-       // public int ReleaseYear { get; set; }
-       // public int AgeRestriction { get; set; }
+        // public int ReleaseYear { get; set; }
+        // public int AgeRestriction { get; set; }
         public virtual List<Genre> Genres { get; set; }
         public virtual List<Actor> Actors { get; set; }
         public virtual List<Rental> Sales { get; set; }
@@ -43,6 +43,8 @@ namespace DatabaseConnection
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
+        public int CustomerId { get; set; }
+        public int MovieId { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Movie Movie { get; set; }
     }

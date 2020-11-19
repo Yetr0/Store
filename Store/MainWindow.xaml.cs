@@ -24,16 +24,16 @@ namespace Store
         public MainWindow()
         {
             InitializeComponent();
-
+            State.Rentals = API.GetRentedMovies(State.User);
             State.Movies = API.GetMovieSlice(0, 30);
             for (int y = 0; y < MovieGrid.RowDefinitions.Count; y++)
             {
                 for (int x = 0; x < MovieGrid.ColumnDefinitions.Count; x++)
                 {
                     int i = y * MovieGrid.ColumnDefinitions.Count + x;
-                    if (i < State.Movies.Count)
+                    if (i < State.Rentals.Count)
                     {
-                        var movie = State.Movies[i];
+                        var movie = State.Rentals[i];
 
                         try
                         {

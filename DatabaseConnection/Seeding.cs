@@ -22,6 +22,8 @@ namespace DatabaseConnection
                     new Customer { Name = "Kalle", Password= "Test" },
                 });
 
+                ctx.AddRange(new Rental { MovieId = ctx.Movies.Find(1).Id, CustomerId = ctx.Customers.Find(1).Id}) ;
+
                 var movies = new List<Movie>();
                 var lines = File.ReadAllLines(@"..\..\..\SeedData\MovieGenre.csv");
                 for (int i = 1; i < 200; i++)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
-
 namespace DatabaseConnection
 {
     public class API
@@ -12,6 +11,18 @@ namespace DatabaseConnection
         {
             using var ctx = new Context();
             return ctx.Movies.OrderBy(m => m.Title).Skip(a).Take(b).ToList();
+        }
+
+        public static List<Movie> GetRentedMovies(Customer user) 
+        {
+            List<Movie> movies = new List<Movie>();
+            using var ctx = new Context();
+            var rentals = ctx.Customers.Find(user.Id).Sales.ToArray();
+            for (int i = 0; i < rentals.Length; i++)
+            {
+                movies.Add(rentals[0].Movie);
+            }
+            return movies;
         }
         
         public static Customer GetCustomerByName(string name, string password)
