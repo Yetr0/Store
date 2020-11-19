@@ -27,7 +27,7 @@ namespace Store
 
         private void LogIn_Click(object sender, RoutedEventArgs e)
         {
-            State.User = API.GetCustomerByName(NameField.Text.Trim());
+            State.User = API.GetCustomerByName(NameField.Text.Trim(), PasswordField.Password);
             if (State.User != null)
             {
                 var next_window = new MainWindow();

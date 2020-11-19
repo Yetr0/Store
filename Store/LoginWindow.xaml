@@ -54,7 +54,7 @@
                 <TextBlock Text="Password" Foreground="White" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Viewbox>
             <TextBox Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Name="NameField" MaxHeight="40" BorderThickness="0" FontSize="16" VerticalContentAlignment="Center" TextAlignment="Center"></TextBox>
-            <PasswordBox Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="4" MaxHeight="40" BorderThickness="0" FontSize="16"></PasswordBox>
+            <PasswordBox Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="4" Name="PasswordField" MaxHeight="40" BorderThickness="0" FontSize="16"></PasswordBox>
             <Button Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="6" Content="Login" Click="LogIn_Click" Background="#cc0000" Foreground="White" FontSize="14" MaxHeight="40"></Button>
             <Viewbox Grid.Column="3" Grid.ColumnSpan="5" Grid.Row="8">
                 <TextBlock Text="Don't have an account?" Foreground="White" TextAlignment="Center"></TextBlock>
