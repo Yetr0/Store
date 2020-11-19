@@ -22,7 +22,7 @@ namespace DatabaseConnection
                     new Customer { Name = "Kalle", Password= "Test" },
                 });
 
-                ctx.AddRange(new Rental { MovieId = ctx.Movies.Find(1).Id, CustomerId = ctx.Customers.Find(1).Id}) ;
+                ctx.AddRange(new Rental { Movie = ctx.Movies.Find(1), Customer = ctx.Customers.Find(1) });
 
                 var movies = new List<Movie>();
                 var lines = File.ReadAllLines(@"..\..\..\SeedData\MovieGenre.csv");

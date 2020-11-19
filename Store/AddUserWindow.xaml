@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="AddUserWindow" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="236,166,0,0" Name="UserField" Text="Username" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="382,166,0,0" Name="PWField" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Add User" Click="AddIn_Click" HorizontalAlignment="Left" Margin="368,217,0,0" VerticalAlignment="Top"/>
-        <Button Content="FALL BACK" Click="Back_Click" HorizontalAlignment="Left" Margin="454,227,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="236,166,0,0" Name="UserField" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="382,166,0,0" Name="PWField" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Add User" Click="AddIn_Click" HorizontalAlignment="Left" Margin="270,197,0,0" VerticalAlignment="Top"/>
+        <Button Content="FALL BACK" Click="Back_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

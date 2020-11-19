@@ -13,7 +13,8 @@ namespace DatabaseConnection
             return ctx.Movies.OrderBy(m => m.Title).Skip(a).Take(b).ToList();
         }
 
-        public static List<Movie> GetRentedMovies(Customer user) 
+
+        public static List<Movie> GetRentedMovies(Customer user)
         {
             List<Movie> movies = new List<Movie>();
             using var ctx = new Context();
@@ -24,7 +25,7 @@ namespace DatabaseConnection
             }
             return movies;
         }
-        
+
         public static Customer GetCustomerByName(string name, string password)
         {
             using var ctx = new Context();
