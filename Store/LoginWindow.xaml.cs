@@ -21,6 +21,8 @@ namespace Store
         public LoginWindow()
         {
             InitializeComponent();
+
+            Button b = new Button();
         }
 
         private void LogIn_Click(object sender, RoutedEventArgs e)
