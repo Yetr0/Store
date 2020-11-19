@@ -46,5 +46,11 @@ namespace Store
         {
 
         }
+        private void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+            var new_window = new AddUserWindow();
+            new_window.Show();
+            this.Close();
+        }
     }
 }

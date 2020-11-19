@@ -59,6 +59,6 @@
             <Viewbox Grid.Column="3" Grid.ColumnSpan="5" Grid.Row="8">
                 <TextBlock Text="Don't have an account?" Foreground="White" TextAlignment="Center"></TextBlock>
             </Viewbox>
-            <Button Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="10" Content="Create Account" FontFamily="Arial" Background="#cc0000" Foreground="White" FontSize="12" MaxHeight="40"></Button>
-        </Grid>
+        <Button Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="10" Content="Create Account" Click="AddUser_Click" FontFamily="Arial" Background="#cc0000" Foreground="White" FontSize="12" MaxHeight="40"></Button>
+    </Grid>
     </Window>
