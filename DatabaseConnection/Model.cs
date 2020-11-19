@@ -10,6 +10,8 @@ namespace DatabaseConnection
         public string Name { get; set; }
         public virtual List<Rental> Sales { get; set; }
         public string Password { get; set; }
+        public string email { get; set; }
+        public int age { get; set; }
     }
     public class Movie
     {
