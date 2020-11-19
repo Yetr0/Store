@@ -36,7 +36,8 @@ namespace Store
             }
             else
             {
-                NameField.Text = "...";
+                NameField.Text = "";
+                PasswordField.Clear();
             }
         }
 
