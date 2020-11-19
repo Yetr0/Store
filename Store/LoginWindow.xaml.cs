@@ -38,6 +38,7 @@ namespace Store
             {
                 NameField.Text = "";
                 PasswordField.Clear();
+                MessageBox.Show("Wrong password or username");
             }
         }
 
