@@ -12,6 +12,8 @@ namespace DatabaseConnection
         public string Password { get; set; }
         public string email { get; set; }
         public int age { get; set; }
+        public string city { get; set }
+
     }
     public class Movie
     {
