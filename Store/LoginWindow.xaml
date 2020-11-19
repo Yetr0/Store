@@ -7,8 +7,58 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Enter Your Name" HorizontalAlignment="Center" Margin="0,108,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="NameField" HorizontalAlignment="Center" Margin="0,184,0,0" Text="..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Click="LogIn_Click" Content="Log In" HorizontalAlignment="Center" Margin="0,246,0,0" VerticalAlignment="Top"/>
-    </Grid>
-</Window>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.01*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+            <Rectangle Grid.Column="0" Grid.ColumnSpan="11" Grid.Row="0" Grid.RowSpan="13">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="black" Offset="0"></GradientStop>
+                        <GradientStop Color="#270000" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Viewbox Grid.Column="2" Grid.ColumnSpan="7" Grid.Row="1">
+                <TextBlock Text="Netflix 2.0" FontSize="62" Foreground="#ffffff" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial"></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3">
+                <TextBlock Text="Username" Foreground="White" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="3">
+                <TextBlock Text="Password" Foreground="White" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            </Viewbox>
+            <TextBox Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Name="NameField" MaxHeight="40" BorderThickness="0" FontSize="16" VerticalContentAlignment="Center" TextAlignment="Center"></TextBox>
+            <PasswordBox Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="4" MaxHeight="40" BorderThickness="0" FontSize="16"></PasswordBox>
+            <Button Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="6" Content="Login" Click="LogIn_Click" Background="#cc0000" Foreground="White" FontSize="14" MaxHeight="40"></Button>
+            <Viewbox Grid.Column="3" Grid.ColumnSpan="5" Grid.Row="8">
+                <TextBlock Text="Don't have an account?" Foreground="White" TextAlignment="Center"></TextBlock>
+            </Viewbox>
+            <Button Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="10" Content="Create Account" FontFamily="Arial" Background="#cc0000" Foreground="White" FontSize="12" MaxHeight="40"></Button>
+        </Grid>
+    </Window>
