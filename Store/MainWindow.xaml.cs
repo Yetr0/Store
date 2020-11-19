@@ -25,6 +25,11 @@ namespace Store
         {
             InitializeComponent();
 
+            if(State.User.Id == 10)
+            {
+                State.Movies = API.GetMovieSlice(0, 10);
+            }
+            else 
             State.Movies = API.GetMovieSlice(0, 30);
             for (int y = 0; y < MovieGrid.RowDefinitions.Count; y++)
             {
