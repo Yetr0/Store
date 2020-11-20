@@ -26,6 +26,7 @@ namespace Store
             InitializeComponent();
 
             int id = State.User.Id;
+            State.Rentals = API.GetRentedMovies(State.User);
             // USER.ID ska ha en egen rent lista.
             State.Movies = API.GetMovieSlice(0, id);
             for (int y = 0; y < MovieGrid.RowDefinitions.Count; y++)

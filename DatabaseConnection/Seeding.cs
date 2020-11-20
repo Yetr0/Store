@@ -16,13 +16,24 @@ namespace DatabaseConnection
                 ctx.RemoveRange(ctx.Movies);
                 ctx.RemoveRange(ctx.Customers);
 
+                Movie movie = new Movie();
+                movie.Title = "Toy Story";
+                movie.ImageURL = "https://images-na.ssl-images-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX182_CR0,0,182,268_AL_.jpg";
+
+                Customer customer = new Customer();
+                customer.Name = "Björn";
+                customer.Password = "Test";
+
                 ctx.AddRange(new List<Customer> {
-                    new Customer { Name = "Björn", Password= "Test" },
+                    customer,
                     new Customer { Name = "Robin", Password= "Test" },
                     new Customer { Name = "Kalle", Password= "Test" },
                 });
 
-                ctx.AddRange(new Rental { Movie = ctx.Movies.Find(1), Customer = ctx.Customers.Find(1) });
+                Rental sales = new Rental();
+                sales.Customer = customer;
+                sales.Movie = movie;
+                ctx.Add(sales);
 
                 var movies = new List<Movie>();
                 var lines = File.ReadAllLines(@"..\..\..\SeedData\MovieGenre.csv");

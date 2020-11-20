@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DatabaseConnection
@@ -43,8 +44,6 @@ namespace DatabaseConnection
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public int CustomerId { get; set; }
-        public int MovieId { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Movie Movie { get; set; }
     }
