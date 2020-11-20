@@ -20,6 +20,11 @@ namespace Store
         public MovieDetailsWindow()
         {
             InitializeComponent();
+            Title.Text = State.Pick.Title;
+            Uri uri = new Uri(State.Pick.ImageURL, UriKind.Absolute);
+            ImageSource imageSource = new BitmapImage(uri);
+            Image.Source = imageSource;
         }
+
     }
 }
