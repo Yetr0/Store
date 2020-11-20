@@ -1,0 +1,49 @@
+﻿<Window x:Class="Store.MovieDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Store"
+        mc:Ignorable="d"
+        Title="MovieDetailsWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height=".3*" />
+            <RowDefinition Height=".1*" />
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height=".1*" />
+            <RowDefinition Height=".1*" />
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Grid.RowSpan="10">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="black" Offset="0"></GradientStop>
+                    <GradientStop Color="#270000" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Image Grid.Column="1" Grid.Row="1" Grid.RowSpan="8" Source="https://upload.wikimedia.org/wikipedia/en/3/3c/JumanjiTheNextLevelTeaserPoster.jpg"></Image>
+        <Viewbox Grid.Column="3" Grid.Row="1">
+            <TextBlock Text="Jumanji: Next Level" Foreground="White" FontFamily="Arial"></TextBlock>
+        </Viewbox>
+        <TextBlock Grid.Column="3" Grid.Row="3" Text="In Jumanji: The Next Level, the gang is back but the game has changed. As they return to rescue one of their own, the players will have to brave parts unknown from arid deserts to snowy mountains, to escape the world's most dangerous game." Foreground="White">
+            </TextBlock>
+
+    </Grid>
+</Window>

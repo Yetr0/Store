@@ -29,8 +29,15 @@ namespace DatabaseConnection
         public static Customer GetCustomerByName(string name, string password)
         {
             using var ctx = new Context();
-            var user = ctx.Customers.FirstOrDefault(c => c.Name.ToLower() == name.ToLower());
-            return user.Password == password ? user : null;
+                var user = ctx.Customers.FirstOrDefault(c => c.Name.ToLower() == name.ToLower());
+            if (user != null)
+            {
+                return user.Password == password ? user : null;
+            }
+            else
+            {
+                return null;
+            }
         }
         public static void AddCustomerByName(string name, string password)
         {

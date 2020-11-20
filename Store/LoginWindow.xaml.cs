@@ -28,15 +28,13 @@ namespace Store
         private void LogIn_Click(object sender, RoutedEventArgs e)
         {
             State.User = API.GetCustomerByName(NameField.Text.Trim(), PasswordField.Password);
-            int id = State.User.Id;
-            Console.WriteLine(id);
-            // Finns flera användare med samma username, password fast olika IDs, vem loggar in?(man är inte inloggad?)
             if (State.User != null)
             {
-                var next_window = new MainWindow();
+                var next_window = new MovieDetailsWindow();
                 next_window.Show();
                 this.Close();
             }
+            // Finns flera användare med samma username, password fast olika IDs, vem loggar in?(man är inte inloggad?)
             else
             {
                 NameField.Text = "";
