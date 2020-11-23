@@ -32,6 +32,7 @@ namespace Store
             {
                 var next_window = new MainWindow();
                 next_window.Show();
+                State.Rentals = API.GetRentedMovies(State.User);
                 this.Close();
             }
             // Finns flera användare med samma username, password fast olika IDs, vem loggar in?(man är inte inloggad?)
@@ -43,10 +44,6 @@ namespace Store
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
             var new_window = new AddUserWindow();

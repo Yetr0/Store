@@ -1,8 +1,7 @@
-﻿using System;
+﻿using DatabaseConnection;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,31 +9,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DatabaseConnection;
 
 namespace Store
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RentedMoviesWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RentedMoviesWindow : Window
     {
-        public MainWindow()
+        public RentedMoviesWindow()
         {
             InitializeComponent();
+            State.Rentals = API.GetRentedMovies(State.User);
 
-            // USER.ID ska ha en egen rent lista.
-            State.Movies = API.GetMovieSlice(0, 30);
-            for (int y = 0; y < MovieGrid.RowDefinitions.Count; y++)
+            for (int y = 1; y < MovieGrid.RowDefinitions.Count; y++)
             {
                 for (int x = 0; x < MovieGrid.ColumnDefinitions.Count; x++)
                 {
-                    int i = y * MovieGrid.ColumnDefinitions.Count + x;
-                    if (i < State.Movies.Count)
+                    int i = (y - 1) * MovieGrid.ColumnDefinitions.Count + x;
+                    if (i < State.Rentals.Count)
                     {
-                        var movie = State.Movies[i];
+                        var movie = State.Rentals[i];
 
                         try
                         {
@@ -61,18 +57,18 @@ namespace Store
                     }
                 }
             }
-        }
-
+    }
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)
         {
             var x = Grid.GetColumn(sender as UIElement);
-            var y = Grid.GetRow(sender as UIElement);
+            var y = Grid.GetRow(sender as UIElement) - 1;
 
             int i = y * MovieGrid.ColumnDefinitions.Count + x;
 
-                State.Pick = State.Movies[i];
-                    var next_window = new MovieDetailsWindow();
-                    next_window.Show();
+            State.Pick = State.Rentals[i];
+            var next_window = new MovieDetailsWindow();
+            next_window.Show();
         }
+
     }
 }
