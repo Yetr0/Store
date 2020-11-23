@@ -53,9 +53,9 @@ namespace Store
                             Grid.SetRow(image, y);
                             Grid.SetColumn(image, x);
                         }
-                        catch (Exception e) when 
-                            (e is ArgumentNullException || 
-                             e is System.IO.FileNotFoundException || 
+                        catch (Exception e) when
+                            (e is ArgumentNullException ||
+                             e is System.IO.FileNotFoundException ||
                              e is UriFormatException)
                         {
                             continue;
@@ -71,16 +71,11 @@ namespace Store
             var y = Grid.GetRow(sender as UIElement);
 
             int i = y * MovieGrid.ColumnDefinitions.Count + x;
-            State.Pick = State.Movies[i];
 
-            if (API.RegisterSale(State.User, State.Pick))
-            {
-                var next_window = new MovieDetailsWindow();
-                next_window.Show();
-                this.Close();
-            }
-            else
-                MessageBox.Show("An error happened while buying the movie, please try again at a later time.", "Sale Failed!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                State.Pick = State.Rentals[i];
+                    var next_window = new MovieDetailsWindow();
+                    next_window.Show();
+                    this.Close();
         }
     }
 }

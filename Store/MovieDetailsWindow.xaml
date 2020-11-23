@@ -45,6 +45,9 @@
             </Rectangle.Fill>
         </Rectangle>
 
+        <Button Background="Transparent" Content="Back" Foreground="White" BorderThickness="0" Click="Button_Click">
+        </Button>
+        
         <Image Grid.Column="1" Grid.Row="1" Grid.RowSpan="8" Name="Image" Source="{Binding Image.Source}"></Image>
         <Viewbox Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="7">
             <TextBlock Name="Title" TextWrapping="Wrap" Foreground="White" FontFamily="Arial"></TextBlock>

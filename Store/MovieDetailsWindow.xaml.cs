@@ -26,5 +26,11 @@ namespace Store
             Image.Source = imageSource;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var next_window = new MainWindow();
+            next_window.Show();
+            this.Close();
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace DatabaseConnection
             var rentals = ctx.Customers.Find(user.Id).Sales.ToArray();
             for (int i = 0; i < rentals.Length; i++)
             {
-                movies.Add(rentals[0].Movie);
+                movies.Add(rentals[i].Movie);
             }
             return movies;
         }
