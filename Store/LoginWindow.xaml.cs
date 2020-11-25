@@ -30,7 +30,7 @@ namespace Store
             State.User = API.GetCustomerByName(NameField.Text.Trim(), PasswordField.Password);
             if (State.User != null)
             {
-                var next_window = new MainWindow();
+                var next_window = new RentedMoviesWindow();
                 next_window.Show();
                 State.Rentals = API.GetRentedMovies(State.User);
                 this.Close();

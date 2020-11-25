@@ -39,6 +39,7 @@ namespace DatabaseConnection
                 return null;
             }
         }
+
         public static void AddCustomerByName(string name, string password)
         {
             using var ctx = new Context();
