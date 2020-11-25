@@ -11,7 +11,8 @@ namespace DatabaseConnection
         public string Name { get; set; }
         public virtual List<Rental> Sales { get; set; }
         public string Password { get; set; }
-    }
+        public bool newUser { get; set; }
+     }
     public class Movie
     {
         public int Id { get; set; }

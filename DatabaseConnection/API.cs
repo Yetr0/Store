@@ -53,6 +53,21 @@ namespace DatabaseConnection
             }
             ctx.SaveChanges();
         }
+        public static void setNewUserTrue(Customer cust)
+        {
+            using var ctx = new Context();
+            try
+            {
+                //var cust = ctx.Customers.Where(x => x.Name == name).FirstOrDefault();
+
+                cust.newUser = true;
+                ctx.Customers.Update(cust);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Fixa fel msg sen");
+            }
+        }
         public static bool RegisterSale(Customer customer, Movie movie)
         {
             using var ctx = new Context();
