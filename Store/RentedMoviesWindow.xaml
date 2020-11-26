@@ -11,7 +11,7 @@
         <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="200" />
                 </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
@@ -29,20 +29,20 @@
                         <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="10"/>
                     </Grid.ColumnDefinitions>
-                    
-                    <Viewbox Grid.Column="1">
-                        <TextBlock Grid.Column="1" Grid.Row="1" Text="Netflix 2.0" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"></TextBlock>
+
+                    <Viewbox Grid.Column="1" Grid.Row="0">
+                        <TextBlock Text="Netflix 2.0" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"></TextBlock>
                     </Viewbox>
-                    <Viewbox Grid.Column="3">
+                    <Viewbox Grid.Column="3" Grid.Row="0">
                         <Button Content="Home" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
                     </Viewbox>
-                    <Viewbox Grid.Column="5">
+                    <Viewbox Grid.Column="5" Grid.Row="0">
                         <Button Content="Movies" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
                     </Viewbox>
-                    <Viewbox Grid.Column="7">
+                    <Viewbox Grid.Column="7" Grid.Row="0">
                         <Button Content="Series" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
                     </Viewbox>
-                    <Viewbox Grid.Column="9">
+                    <Viewbox Grid.Column="9" Grid.Row="0">
                         <Button Content="Account" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
                     </Viewbox>
                 </Grid>
