@@ -21,9 +21,6 @@ namespace Store.SubViews
         public Home()
         {
             InitializeComponent();
-
-            StackPanel.MouseWheel += Scroller_MouseWheel;
-            Scroller.MouseWheel += Scroller_MouseWheel;
             this.MouseWheel += Scroller_MouseWheel;
 
 
