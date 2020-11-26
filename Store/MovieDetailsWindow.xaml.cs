@@ -26,15 +26,26 @@ namespace Store
             ImageSource imageSource = new BitmapImage(uri);
             Image.Source = imageSource;
             var movie = State.Pick;
-            if (State.Rentals.Contains(movie))
+            foreach (var Movie in State.Rentals)
             {
-                MainButton.Content = "Watch";
-                Price.Text = "Owned movie";
+                if (Movie.Id == State.Pick.Id)
+                {
+                    RentedMovie();
+                    break;
+                }
+                else
+                {
+                    MainButton.Content = "Rent";
+                }
             }
-            else if (!State.Rentals.Contains(State.Pick))
-            {
-                MainButton.Content = "Rent";
-            }
+        }
+
+        public void RentedMovie()
+        {
+            MainButton.Content = "Watch";
+            Price.Text = "Owned movie";
+            MainButton.Click -= Button_Click_1;
+            MainButton.Click += Button_Click_2;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,8 +58,11 @@ namespace Store
             API.RegisterSale(State.User, State.Pick);
             State.Rentals.Add(State.Pick);
             MessageBox.Show("Successfully rented movie");
-            MainButton.Content = "Watch";
-            Price.Text = "Owned movie";
+            RentedMovie();
+        }
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("You can't watch this movie.");
         }
     }
 }

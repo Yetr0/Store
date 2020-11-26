@@ -58,10 +58,11 @@ namespace DatabaseConnection
             using var ctx = new Context();
             try
             {
-                //var cust = ctx.Customers.Where(x => x.Name == name).FirstOrDefault();
+                //var customer = ctx.Customers.Where(x => x.Name == cust.Name).FirstOrDefault();
 
                 cust.newUser = true;
                 ctx.Customers.Update(cust);
+                ctx.SaveChanges();
             }
             catch(Exception e)
             {

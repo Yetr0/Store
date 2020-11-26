@@ -10,17 +10,47 @@
     <ScrollViewer>
         <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20" />
+                    <RowDefinition Height="40" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
-                    <sub:Navigation x:Name="Navigation" Visibility="Visible"></sub:Navigation>
+            <Grid Grid.Row="0">
+                <Grid Background="black">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Viewbox Grid.Column="1">
+                        <TextBlock Grid.Column="1" Grid.Row="1" Text="Netflix 2.0" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"></TextBlock>
+                    </Viewbox>
+                    <Viewbox Grid.Column="3">
+                        <Button Content="Home" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
+                    </Viewbox>
+                    <Viewbox Grid.Column="5">
+                        <Button Content="Movies" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
+                    </Viewbox>
+                    <Viewbox Grid.Column="7">
+                        <Button Content="Series" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
+                    </Viewbox>
+                    <Viewbox Grid.Column="9">
+                        <Button Content="Account" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
+                    </Viewbox>
                 </Grid>
+            </Grid>
 
                 <Grid Name="MovieGrid" Grid.Row="1">
-                    <sub:Home x:Name="Home" Visibility="Visible"></sub:Home>
-                </Grid>
+                <sub:Home Visibility="Visible" x:Name="Home"></sub:Home>
+            </Grid>
 
             </Grid>
     </ScrollViewer>
