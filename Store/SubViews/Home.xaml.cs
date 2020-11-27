@@ -21,7 +21,7 @@ namespace Store.SubViews
         public Home()
         {
             InitializeComponent();
-            this.MouseWheel += Scroller_MouseWheel;
+            StackPanel.MouseWheel += Scroller_MouseWheel;
 
 
             for (int i = 0; i < State.Rentals.Count; i++)
@@ -43,6 +43,7 @@ namespace Store.SubViews
             var a = -1 * e.Delta;
                 var offset = Scroller.HorizontalOffset;
                 Scroller.ScrollToHorizontalOffset(offset + a);
+             MessageBox.Show(a.ToString());
         }
 
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)
