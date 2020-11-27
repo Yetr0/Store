@@ -25,18 +25,22 @@ namespace Store
             Uri uri = new Uri(State.Pick.ImageURL, UriKind.Absolute);
             ImageSource imageSource = new BitmapImage(uri);
             Image.Source = imageSource;
-            var movie = State.Pick;
-            foreach (var Movie in State.Rentals)
+            Year.Text += State.Pick.ReleaseYear;
+            Rating.Text += State.Pick.Rating;
+            if (State.Rentals.Count > 0)
             {
-                if (Movie.Id == State.Pick.Id)
+                foreach (var Movie in State.Rentals)
                 {
-                    RentedMovie();
-                    break;
+                    if (Movie.Id == State.Pick.Id)
+                    {
+                        RentedMovie();
+                        break;
+                    }
                 }
-                else
-                {
-                    MainButton.Content = "Rent";
-                }
+            }
+            else
+            {
+                MainButton.Content = "Rent";
             }
         }
 

@@ -85,7 +85,7 @@ namespace DatabaseConnection.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genre");
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("DatabaseConnection.Movie", b =>
@@ -96,6 +96,12 @@ namespace DatabaseConnection.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("ImageURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReleaseYear")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")

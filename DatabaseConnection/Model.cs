@@ -18,8 +18,8 @@ namespace DatabaseConnection
         public int Id { get; set; }
         public string Title { get; set; }
         public string ImageURL { get; set; }
-        // public int ReleaseYear { get; set; }
-        // public int AgeRestriction { get; set; }
+        public string ReleaseYear { get; set; }
+        public string Rating { get; set; }
         public virtual List<Genre> Genres { get; set; }
         public virtual List<Actor> Actors { get; set; }
         public virtual List<Rental> Sales { get; set; }

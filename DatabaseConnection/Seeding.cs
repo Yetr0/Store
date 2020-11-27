@@ -35,20 +35,55 @@ namespace DatabaseConnection
                 sales.Movie = movie;
                 ctx.Add(sales);
 
+                var genres = new List<Genre>()
+                {
+                    new Genre { GenreName = "Crime"},
+                    new Genre { GenreName = "Action"},
+                    new Genre { GenreName = "Comedy"},
+                    new Genre { GenreName = "Drama"},
+                    new Genre { GenreName = "Thriller"},
+                    new Genre { GenreName = "Romance"},
+                    new Genre { GenreName = "Adventure"},
+                    new Genre { GenreName = "Family"},
+                    new Genre { GenreName = "Fantasy"},
+                    new Genre { GenreName = "Horror"},
+                    new Genre { GenreName = "Mystery"},
+                    new Genre { GenreName = "Sci-Fi"},
+                };
+                ctx.AddRange(genres);
+
                 var movies = new List<Movie>();
                 var lines = File.ReadAllLines(@"..\..\..\SeedData\MovieGenre.csv");
                 for (int i = 1; i < 200; i++)
                 {
-                    // imdbId,Imdb Link,Title,IMDB Score,Genre,Poster
+                    // imdbId,Imdb Link,Title,Year,IMDB Score,Genre,Poster
                     var cells = lines[i].Split(',');
 
-                    var url = cells[5].Trim('"');
+                    var url = cells[6].Trim('"');
+
+                    var genre = cells[5].Split("|");
+
+                    var year = cells[3];
+
+                    var rating = cells[4];
+
+                    List<Genre> Gens = new List<Genre>();
+                    foreach (var gen in genre)
+                    {
+                        foreach (var Gen in genres)
+                        {
+                            if(gen == Gen.GenreName)
+                            {
+                                Gens.Add(Gen);
+                            }
+                        }
+                    }
 
                     // Hoppa över alla icke-fungerande url:er
                     try{ var test = new Uri(url); }
                     catch (Exception e) { continue; }
 
-                    movies.Add(new Movie { Title = cells[2], ImageURL = url });
+                    movies.Add(new Movie { Title = cells[2], ImageURL = url, ReleaseYear = year, Genres = Gens, Rating = rating });
                 }
                 ctx.AddRange(movies);
 
