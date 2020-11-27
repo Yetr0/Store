@@ -58,7 +58,7 @@
             <TextBlock Name="Rating" Text="Rating: " Foreground="White"/>
         </Viewbox>
         <Viewbox Grid.Column="5" Grid.Row="5">
-            <TextBlock Name="Year" Text="Release Year: " Foreground="White"/>
+            <TextBlock Name="Year" Text="Year: " Foreground="White"/>
         </Viewbox>
         <Viewbox Grid.Column="6" Grid.Row="8">
             <TextBlock Text="$9.99" Name="Price" Foreground="White"/>
@@ -67,6 +67,6 @@
         <Viewbox Grid.Column="7" Grid.ColumnSpan="4" Grid.Row="5">
             <TextBlock Text="Add to watchlist" Foreground="White"/>
         </Viewbox>
-        <Button Grid.Column="9" Grid.Row="6" Background="Transparent" BorderThickness="0" Content="+" Foreground="White" FontSize="20" Margin="5"></Button>
+        <Button Grid.Column="9" Grid.Row="6" Background="Transparent" BorderThickness="0" Content="+" Foreground="White" FontSize="20" Margin="5" Click="AddToWatchList"></Button>
     </Grid>
 </Window>

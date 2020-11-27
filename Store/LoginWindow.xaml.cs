@@ -28,14 +28,14 @@ namespace Store
         private void LogIn_Click(object sender, RoutedEventArgs e)
         {
             State.User = API.GetCustomerByName(NameField.Text.Trim(), PasswordField.Password);
-            if (State.User != null && State.User.newUser == true)
+            if (State.User != null && State.User.NewUser == true)
             {
                 State.Rentals = API.GetRentedMovies(State.User);
                 var next_window = new RentedMoviesWindow();
                 next_window.Show();
                 this.Close();
             } 
-            else if ( State.User != null && State.User.newUser == false)
+            else if ( State.User != null && State.User.NewUser == false)
             {
                 var next_window = new AdaptationWindow();
                 State.Rentals = API.GetRentedMovies(State.User);

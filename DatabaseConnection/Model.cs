@@ -11,8 +11,9 @@ namespace DatabaseConnection
         public string Name { get; set; }
         public virtual List<Rental> Sales { get; set; }
         public string Password { get; set; }
-        public bool newUser { get; set; }
-     }
+        public bool NewUser { get; set; }
+        public virtual List<WatchList> WatchList { get; set; }
+    }
     public class Movie
     {
         public int Id { get; set; }
@@ -21,7 +22,6 @@ namespace DatabaseConnection
         public string ReleaseYear { get; set; }
         public string Rating { get; set; }
         public virtual List<Genre> Genres { get; set; }
-        public virtual List<Actor> Actors { get; set; }
         public virtual List<Rental> Sales { get; set; }
     }
 
@@ -32,18 +32,17 @@ namespace DatabaseConnection
         public virtual List<Movie> Movies { get; set; }
     }
 
-    public class Actor
-    {
-        public int Id { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public virtual List<Movie> Movies { get; set; }
-    }
-
     public class Rental
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Movie Movie { get; set; }
+    }
+
+    public class WatchList
+    {
+        public int Id { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Movie Movie { get; set; }
     }

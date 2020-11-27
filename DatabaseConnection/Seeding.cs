@@ -15,10 +15,8 @@ namespace DatabaseConnection
                 ctx.RemoveRange(ctx.Sales);
                 ctx.RemoveRange(ctx.Movies);
                 ctx.RemoveRange(ctx.Customers);
+                ctx.RemoveRange(ctx.WatchLists);
 
-                Movie movie = new Movie();
-                movie.Title = "Toy Story";
-                movie.ImageURL = "https://images-na.ssl-images-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX182_CR0,0,182,268_AL_.jpg";
 
                 Customer customer = new Customer();
                 customer.Name = "Björn";
@@ -29,11 +27,6 @@ namespace DatabaseConnection
                     new Customer { Name = "Robin", Password= "Test" },
                     new Customer { Name = "Kalle", Password= "Test" },
                 });
-
-                Rental sales = new Rental();
-                sales.Customer = customer;
-                sales.Movie = movie;
-                ctx.Add(sales);
 
                 var genres = new List<Genre>()
                 {
@@ -51,6 +44,18 @@ namespace DatabaseConnection
                     new Genre { GenreName = "Sci-Fi"},
                 };
                 ctx.AddRange(genres);
+
+                Movie movie = new Movie();
+                movie.Title = "Toy Story";
+                movie.ImageURL = "https://images-na.ssl-images-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX182_CR0,0,182,268_AL_.jpg";
+                movie.Rating = "10";
+                movie.Genres = new List<Genre>() { genres[2], genres[6], genres[7], genres[8] };
+
+                Rental sales = new Rental();
+                sales.Customer = customer;
+                sales.Movie = movie;
+                ctx.Add(sales);
+
 
                 var movies = new List<Movie>();
                 var lines = File.ReadAllLines(@"..\..\..\SeedData\MovieGenre.csv");

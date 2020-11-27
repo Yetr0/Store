@@ -60,7 +60,7 @@ namespace DatabaseConnection
             {
                 //var customer = ctx.Customers.Where(x => x.Name == cust.Name).FirstOrDefault();
 
-                cust.newUser = true;
+                cust.NewUser = true;
                 ctx.Customers.Update(cust);
                 ctx.SaveChanges();
             }
@@ -88,6 +88,14 @@ namespace DatabaseConnection
                 System.Diagnostics.Debug.WriteLine(e.InnerException.Message);
                 return false;
             }
+        }
+        public static bool AddToWatchList(Customer customer, Movie movie)
+        {
+            using var ctx = new Context();
+            ctx.Entry(customer).State = EntityState.Unchanged;
+            ctx.Entry(movie).State = EntityState.Unchanged;
+            ctx.Add(new WatchList { Customer = customer, Movie = movie });
+            return ctx.SaveChanges() == 1;
         }
     }
 }

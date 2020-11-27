@@ -36,6 +36,10 @@ namespace Store
                         RentedMovie();
                         break;
                     }
+                    else
+                    {
+                        MainButton.Content = "Rent";
+                    }
                 }
             }
             else
@@ -67,6 +71,14 @@ namespace Store
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("You can't watch this movie.");
+        }
+
+        private void AddToWatchList(object sender, RoutedEventArgs e)
+        {
+            if (API.AddToWatchList(State.User, State.Pick))
+            {
+                MessageBox.Show("Sucessfully added Movie to watch list");
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace DatabaseConnection
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Rental> Sales { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<WatchList> WatchLists { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
