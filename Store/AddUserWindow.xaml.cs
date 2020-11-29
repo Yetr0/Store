@@ -24,7 +24,7 @@ namespace Store
         }
         private void AddIn_Click(object sender, RoutedEventArgs e)
         {
-            API.AddCustomerByName(UserField.Text.Trim(), PWField.Text);
+            API.AddCustomerByName(UserField.Text.Trim(), PWField.Password);
             var new_window = new LoginWindow();
             new_window.Show();
             this.Close();
@@ -51,6 +51,11 @@ namespace Store
             var login_window = new LoginWindow();
             login_window.Show();
             this.Close();
+        }
+
+        private void yes(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
     }
 }
