@@ -54,7 +54,7 @@ namespace Store
         {
             var new_window = new AddUserWindow();
             new_window.Show();
-            this.Close();
+            this.Close(); //Kanske ska freeza detta fönster så ADDUserWindow öppnas som en pop-up
         }
     }
 }

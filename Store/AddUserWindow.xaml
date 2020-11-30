@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:Store"
         mc:Ignorable="d"
         Title="AddUserWindow" Height="280" Width="250">
-    <Grid Background="DarkRed">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FFEA2525" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
