@@ -5,12 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Store"
         mc:Ignorable="d"
-        Title="AdaptationWindow" Height="200" Width="500">
+        Title="AdaptationWindow" Height="200" Width="250">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="450*"/>
-            <ColumnDefinition Width="450*"/>
-        </Grid.ColumnDefinitions>
         <Button Name="Back_Button" Click="Back_Click" Content="Skip" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
     </Grid>

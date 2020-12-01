@@ -4,20 +4,55 @@ using DatabaseConnection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DatabaseConnection.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20201201134929_FavoriteGenreAdded")]
+    partial class FavoriteGenreAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
+
+            modelBuilder.Entity("ActorMovie", b =>
+                {
+                    b.Property<int>("ActorsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MoviesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ActorsId", "MoviesId");
+
+                    b.HasIndex("MoviesId");
+
+                    b.ToTable("ActorMovie");
+                });
+
+            modelBuilder.Entity("DatabaseConnection.Actor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Firstname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lastname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Actor");
+                });
 
             modelBuilder.Entity("DatabaseConnection.Customer", b =>
                 {
@@ -26,23 +61,11 @@ namespace DatabaseConnection.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("NewUser")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("int");
 
                     b.Property<int?>("favoriteGenreId")
                         .HasColumnType("int");
@@ -121,28 +144,6 @@ namespace DatabaseConnection.Migrations
                     b.ToTable("Sales");
                 });
 
-            modelBuilder.Entity("DatabaseConnection.WatchList", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MovieId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CustomerId");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("WatchLists");
-                });
-
             modelBuilder.Entity("GenreMovie", b =>
                 {
                     b.Property<int>("GenresId")
@@ -158,19 +159,19 @@ namespace DatabaseConnection.Migrations
                     b.ToTable("GenreMovie");
                 });
 
-            modelBuilder.Entity("DatabaseConnection.Rental", b =>
+            modelBuilder.Entity("ActorMovie", b =>
                 {
-                    b.HasOne("DatabaseConnection.Customer", "Customer")
-                        .WithMany("Sales")
-                        .HasForeignKey("CustomerId");
+                    b.HasOne("DatabaseConnection.Actor", null)
+                        .WithMany()
+                        .HasForeignKey("ActorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("DatabaseConnection.Movie", "Movie")
-                        .WithMany("Sales")
-                        .HasForeignKey("MovieId");
-
-                    b.Navigation("Customer");
-
-                    b.Navigation("Movie");
+                    b.HasOne("DatabaseConnection.Movie", null)
+                        .WithMany()
+                        .HasForeignKey("MoviesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DatabaseConnection.Customer", b =>
@@ -185,11 +186,11 @@ namespace DatabaseConnection.Migrations
             modelBuilder.Entity("DatabaseConnection.Rental", b =>
                 {
                     b.HasOne("DatabaseConnection.Customer", "Customer")
-                        .WithMany("WatchList")
+                        .WithMany("Sales")
                         .HasForeignKey("CustomerId");
 
                     b.HasOne("DatabaseConnection.Movie", "Movie")
-                        .WithMany()
+                        .WithMany("Sales")
                         .HasForeignKey("MovieId");
 
                     b.Navigation("Customer");
@@ -215,8 +216,6 @@ namespace DatabaseConnection.Migrations
             modelBuilder.Entity("DatabaseConnection.Customer", b =>
                 {
                     b.Navigation("Sales");
-
-                    b.Navigation("WatchList");
                 });
 
             modelBuilder.Entity("DatabaseConnection.Movie", b =>

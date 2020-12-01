@@ -9,11 +9,15 @@ namespace DatabaseConnection
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public int PhoneNumber { get; set; }
         public virtual List<Rental> Sales { get; set; }
         public string Password { get; set; }
-        public bool NewUser { get; set; }
-        public virtual List<WatchList> WatchList { get; set; }
-    }
+        public bool newUser { get; set; }
+        public virtual Genre favoriteGenre { get; set; }
+
+     }
     public class Movie
     {
         public int Id { get; set; }
@@ -30,6 +34,7 @@ namespace DatabaseConnection
         public int Id { get; set; }
         public string GenreName { get; set; }
         public virtual List<Movie> Movies { get; set; }
+
     }
 
     public class Rental

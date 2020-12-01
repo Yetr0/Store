@@ -23,28 +23,23 @@ namespace Store
             InitializeComponent();
         }
         private void AddIn_Click(object sender, RoutedEventArgs e)
-        {
-            API.AddCustomerByName(UserField.Text.Trim(), PWField.Text);
-            var new_window = new LoginWindow();
-            new_window.Show();
-            this.Close();
-            //State.User = API.GetCustomerByName(UserField.Text.Trim(), PWField.Text);
-            //if (State.User == null)
-            //{
+          {
+           
 
-            //}
-            //else
-            //{
-            //   MessageBox.Show("Användaren finns redan");
-            //}
+            State.User = API.GetCustomerByName(UserField.Text.Trim(), PWField.Password);
 
-            //API.AddCustomerByName(UserField.Text.Trim(), PWField.Text); // ändra tillbaka sen  API.AddCustomerByName("Anton", "Berglund");
-            // kolla ifall username redan finns, adda inte då.
+            if (State.User != null)
+            {
+                MessageBox.Show("Användaren finns redan");
+            } else
+            {
 
-            /* var new_window = new LoginWindow();
-             new_window.Show();
-             this.Close();
-            */
+                API.AddCustomerByName(UserField.Text.Trim(), PWField.Password);
+                var new_window = new LoginWindow();
+                new_window.Show();
+                this.Close();
+            }
+
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
@@ -52,5 +47,6 @@ namespace Store
             login_window.Show();
             this.Close();
         }
+
     }
 }

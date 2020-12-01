@@ -59,8 +59,9 @@ namespace DatabaseConnection
             try
             {
                 //var customer = ctx.Customers.Where(x => x.Name == cust.Name).FirstOrDefault();
-
-                cust.NewUser = true;
+                
+                cust.favoriteGenre = ctx.Genres.Find(1);
+                cust.newUser = true;
                 ctx.Customers.Update(cust);
                 ctx.SaveChanges();
             }
