@@ -49,6 +49,7 @@ namespace DatabaseConnection
                 movie.Title = "Toy Story";
                 movie.ImageURL = "https://images-na.ssl-images-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX182_CR0,0,182,268_AL_.jpg";
                 movie.Rating = "10";
+                movie.ReleaseYear = "1995";
                 movie.Genres = new List<Genre>() { genres[2], genres[6], genres[7], genres[8] };
 
                 Rental sales = new Rental();
@@ -58,6 +59,7 @@ namespace DatabaseConnection
 
 
                 var movies = new List<Movie>();
+                movies.Add(movie);
                 var lines = File.ReadAllLines(@"..\..\..\SeedData\MovieGenre.csv");
                 for (int i = 1; i < 200; i++)
                 {

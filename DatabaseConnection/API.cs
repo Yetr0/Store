@@ -18,7 +18,7 @@ namespace DatabaseConnection
         {
             List<Movie> movies = new List<Movie>();
             using var ctx = new Context();
-            var rentals = ctx.Customers.Find(user.Id).Sales.ToArray();
+            var rentals = ctx.Customers.Single(c => c.Id == user.Id).Sales.ToArray();
             for (int i = 0; i < rentals.Length; i++)
             {
                 movies.Add(rentals[i].Movie);

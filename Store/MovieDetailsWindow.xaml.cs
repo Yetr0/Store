@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Linq;
 
 namespace Store
 {
@@ -20,6 +21,8 @@ namespace Store
     {
         public MovieDetailsWindow()
         {
+            using var ctx = new Context();
+            var movie = ctx.Movies.Find(State.Pick.Id);
             InitializeComponent();
             Title.Text = State.Pick.Title;
             Uri uri = new Uri(State.Pick.ImageURL, UriKind.Absolute);
@@ -27,6 +30,11 @@ namespace Store
             Image.Source = imageSource;
             Year.Text += State.Pick.ReleaseYear;
             Rating.Text += State.Pick.Rating;
+            foreach (var genre in movie.Genres)
+            {
+                Genres.Text += " " + genre.GenreName;
+            }
+            //Genres.Text += 
             if (State.Rentals.Count > 0)
             {
                 foreach (var Movie in State.Rentals)
