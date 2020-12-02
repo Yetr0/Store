@@ -18,7 +18,7 @@ namespace DatabaseConnection
         {
             List<Movie> movies = new List<Movie>();
             using var ctx = new Context();
-            var rentals = ctx.Customers.Single(c => c.Id == user.Id).Sales.ToArray();
+            var rentals = ctx.Customers.FirstOrDefault(c => c.Id == user.Id).Sales.ToArray();
             for (int i = 0; i < rentals.Length; i++)
             {
                 movies.Add(rentals[i].Movie);
@@ -61,7 +61,7 @@ namespace DatabaseConnection
                 //var customer = ctx.Customers.Where(x => x.Name == cust.Name).FirstOrDefault();
                 
                 cust.favoriteGenre = ctx.Genres.Find(1);
-                cust.newUser = true;
+                cust.NewUser = true;
                 ctx.Customers.Update(cust);
                 ctx.SaveChanges();
             }

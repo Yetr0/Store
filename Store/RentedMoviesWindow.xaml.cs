@@ -20,44 +20,14 @@ namespace Store
     {
         public RentedMoviesWindow()
         {
+
+            /*RentedMoviesWindow rented = new RentedMoviesWindow();
+            StackPanel.MouseWheel += rented.Scroller_MouseWheel ;*/
+
+            this.MouseWheel += Scroller_MouseWheel;
+
             InitializeComponent();
-            State.Rentals = API.GetRentedMovies(State.User);
-
-            for (int y = 1; y < MovieGrid.RowDefinitions.Count; y++)
-            {
-                for (int x = 0; x < MovieGrid.ColumnDefinitions.Count; x++)
-                {
-                    int i = (y - 1) * MovieGrid.ColumnDefinitions.Count + x;
-                    if (i < State.Rentals.Count)
-                    {
-                        var movie = State.Rentals[i];
-
-                        try
-                        {
-                            var image = new Image() { };
-                            image.Cursor = Cursors.Hand;
-                            image.MouseUp += Image_MouseUp;
-                            image.HorizontalAlignment = HorizontalAlignment.Center;
-                            image.VerticalAlignment = VerticalAlignment.Center;
-                            image.Source = new BitmapImage(new Uri(movie.ImageURL));
-                            //image.Height = 120;
-                            image.Margin = new Thickness(4, 4, 4, 4);
-
-                            MovieGrid.Children.Add(image);
-                            Grid.SetRow(image, y);
-                            Grid.SetColumn(image, x);
-                        }
-                        catch (Exception e) when
-                            (e is ArgumentNullException ||
-                             e is System.IO.FileNotFoundException ||
-                             e is UriFormatException)
-                        {
-                            continue;
-                        }
-                    }
-                }
-            }
-    }
+        }
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)
         {
             var x = Grid.GetColumn(sender as UIElement);
@@ -68,6 +38,14 @@ namespace Store
             State.Pick = State.Rentals[i];
             var next_window = new MovieDetailsWindow();
             next_window.Show();
+        }
+
+        public void Scroller_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var a = -1 * e.Delta;
+            var offset = Scroller.VerticalOffset;
+            Scroller.ScrollToHorizontalOffset(offset + a);
+            MessageBox.Show("Working");
         }
 
     }

@@ -14,8 +14,9 @@ namespace DatabaseConnection
         public int PhoneNumber { get; set; }
         public virtual List<Rental> Sales { get; set; }
         public string Password { get; set; }
-        public bool newUser { get; set; }
+        public bool NewUser { get; set; }
         public virtual Genre favoriteGenre { get; set; }
+        public virtual List<WatchList> WatchList { get; set; }
 
      }
     public class Movie

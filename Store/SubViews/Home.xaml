@@ -4,22 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Store.SubViews"
+             xmlns:sub="clr-namespace:Store.SubViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition Height="1*" />
-        </Grid.RowDefinitions>
-        <Viewbox Grid.Row="0" HorizontalAlignment="Left">
-            <TextBlock Text="Rented Movies" Foreground="Black"/>
-        </Viewbox>
-        <ScrollViewer Grid.Row="1" x:Name="Scroller" Height="auto" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="auto" IsDeferredScrollingEnabled="True">
-        <StackPanel Name="StackPanel" Orientation="Horizontal" CanHorizontallyScroll="True" CanVerticallyScroll="False">
-            <Grid x:Name="TheGrid">
-                
-            </Grid>
-        </StackPanel>
+    <ScrollViewer x:Name="Scroller">
+        <Grid x:Name="Grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+
+            </Grid.RowDefinitions>
+            <sub:RentedMovies x:Name="RentedMovies"></sub:RentedMovies>
+            <sub:RentedMovies Grid.Row="1" x:Name="RentedMovies1"></sub:RentedMovies>
+            <sub:RentedMovies Grid.Row="2" x:Name="RentedMovies2"></sub:RentedMovies>
+            <sub:RentedMovies Grid.Row="3" x:Name="RentedMovies3"></sub:RentedMovies>
+        </Grid>
     </ScrollViewer>
-    </Grid>
 </UserControl>
