@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Store"
         mc:Ignorable="d"
-        Title="AddUserWindow" Height="280" Width="250">
+        Title="AddUserWindow" Height="450" Width="250">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -20,16 +20,24 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Center" Grid.Row="0" Text="Sign up" FontSize="14" Foreground="White"/>
-        <TextBlock Text=" * Look where you want when you want" Grid.Row="1" Grid.Column="0" Foreground="White"/>
+        <TextBlock Text=" * Look where you want when you want" Grid.Row="1" Foreground="White"/>
         <TextBlock Text=" * Access to the latest movies" Grid.Row="2" Foreground="White"/>
         <TextBlock Text=" * Save your own lists and get personal tips" Grid.Row="3" Foreground="White"/>
-        <TextBox Name="UserField" Text="Username" Grid.Row="4" Height="30" Width="120" HorizontalAlignment="Center" BorderThickness="0" Margin="0,0,0,1"/>
-        <PasswordBox Name="PWField" Password="Password" Grid.Row="5" Height="30" Width="120" HorizontalAlignment="Center" BorderThickness="0" Margin="0,1,0,0"/>
-        <Button Content="Create account" Click="AddIn_Click" Height="20" Width="90" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Top" Margin="0,10,0,0"/>
-        <Button Content="Back" Click="Back_Click" Height="20" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="6" Margin="0,0,0,10"/>
+        <TextBox Name="UserField" Text="Username" Grid.Row="4" Height="30" Width="120" HorizontalAlignment="Left" BorderThickness="0" Margin="10,0,0,1"/>
+        <TextBox Name="AddressField" Text="Address" Grid.Row="6" Height="30" Width="120" HorizontalAlignment="Left" BorderThickness="0" Margin="10,1,0,1"/>
+        <TextBox Name="EmailField" Text="Email" Grid.Row="7" Height="30" Width="120" HorizontalAlignment="Left" BorderThickness="0" Margin="10,1,0,1"/>
+        <TextBox Name="PField" Text="Phone number" Grid.Row="8" Height="30" Width="120" HorizontalAlignment="Left" BorderThickness="0" Margin="10,1,0,1"/>
+        <PasswordBox Name="PWField" Password="Password" Grid.Row="5" Height="30" Width="120" HorizontalAlignment="Left" BorderThickness="0" Margin="10,1,0,0"/>
+        <Button Content="Create account" Click="AddIn_Click" Height="20" Width="90" HorizontalAlignment="Center" Grid.Row="10" VerticalAlignment="Top" Margin="0,10,0,0"/>
+        <Button Content="Back" Click="Back_Click" Height="20" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="10" Margin="0,0,0,10"/>
         <TextBlock Text="Already have an account?" Grid.Row="6" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,40"/>
+        <ComboBox Name="GenreBox" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

@@ -21,6 +21,14 @@ namespace Store
         public AddUserWindow()
         {
             InitializeComponent();
+
+            //API hämta genres loopar och lägger dom i Genrebox listan
+            // Sen i Addin_click lägg till för en användare
+            String a = "anton";
+            String b = "Banton";
+
+            GenreBox.Items.Add(a);
+            GenreBox.Items.Add(b);
         }
         private void AddIn_Click(object sender, RoutedEventArgs e)
           {
@@ -35,6 +43,8 @@ namespace Store
             {
 
                 API.AddCustomerByName(UserField.Text.Trim(), PWField.Password);
+                //API.addemail/adress/phonenumber
+                // API.AddGenre()
                 var new_window = new LoginWindow();
                 new_window.Show();
                 this.Close();
