@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Store.SubViews;
 
 namespace Store.SubViews
 {
@@ -22,7 +23,6 @@ namespace Store.SubViews
         {
             InitializeComponent();
             this.MouseWheel += Scroller_MouseWheel;
-            Grid.MouseWheel += Scroller_MouseWheel;
         }
 
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)

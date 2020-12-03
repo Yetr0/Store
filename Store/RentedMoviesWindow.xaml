@@ -7,46 +7,45 @@
         xmlns:local="clr-namespace:Store"
         mc:Ignorable="d"
         Title="Rented Movies" Height="450" Width="800">
-    <ScrollViewer x:Name="Scroller">
-        <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="35" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <Grid Background="black">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="30" />
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="10"/>
-                    </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0">
+            <Grid Background="black">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
 
-                    <Viewbox Grid.Column="1" Grid.Row="0">
-                        <TextBlock Text="Netflix 2.0" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"></TextBlock>
-                    </Viewbox>
-                    <Viewbox Grid.Column="3" Grid.Row="0">
-                        <Button Content="Home" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
-                    </Viewbox>
-                    <Viewbox Grid.Column="5" Grid.Row="0">
-                        <Button Content="Movies" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
-                    </Viewbox>
-                    <Viewbox Grid.Column="7" Grid.Row="0">
-                        <Button Content="Account" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
-                    </Viewbox>
-                </Grid>
+                <Viewbox Grid.Column="1" Grid.Row="0">
+                    <TextBlock Text="Netflix 2.0" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"></TextBlock>
+                </Viewbox>
+                <Viewbox Grid.Column="3" Grid.Row="0">
+                    <Button Content="Home" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
+                </Viewbox>
+                <Viewbox Grid.Column="5" Grid.Row="0">
+                    <Button Content="Movies" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
+                </Viewbox>
+                <Viewbox Grid.Column="7" Grid.Row="0">
+                    <Button Content="Account" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
+                </Viewbox>
             </Grid>
+        </Grid>
 
-                <Grid Name="MovieGrid" Grid.Row="1">
-                <sub:Home Visibility="Visible" x:Name="Home"></sub:Home>
-            </Grid>
+        <Grid Name="MovieGrid" Grid.Row="1">
+            <sub:Home Visibility="Visible" x:Name="Home"></sub:Home>
+            <sub:Home Visibility="Visible" x:Name="Homie"></sub:Home>
+        </Grid>
 
-            </Grid>
-    </ScrollViewer>
+    </Grid>
 </Window>

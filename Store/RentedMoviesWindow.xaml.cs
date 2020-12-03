@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Store.SubViews;
 
 namespace Store
 {
@@ -24,7 +25,7 @@ namespace Store
             /*RentedMoviesWindow rented = new RentedMoviesWindow();
             StackPanel.MouseWheel += rented.Scroller_MouseWheel ;*/
 
-            this.MouseWheel += Scroller_MouseWheel;
+            //this.MouseWheel += Scroller_MouseWheel;
 
             InitializeComponent();
         }
@@ -40,13 +41,13 @@ namespace Store
             next_window.Show();
         }
 
-        public void Scroller_MouseWheel(object sender, MouseWheelEventArgs e)
+        /*public void Scroller_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var a = -1 * e.Delta;
             var offset = Scroller.VerticalOffset;
             Scroller.ScrollToHorizontalOffset(offset + a);
             MessageBox.Show("Working");
-        }
+        }*/
 
     }
 }
