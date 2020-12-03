@@ -28,18 +28,12 @@ namespace Store
         private void LogIn_Click(object sender, RoutedEventArgs e)
         {
             State.User = API.GetCustomerByName(NameField.Text.Trim(), PasswordField.Password);
-            if (State.User != null && State.User.newUser == true)
+            if (State.User != null)
             {
                 State.Rentals = API.GetRentedMovies(State.User);
                 var next_window = new RentedMoviesWindow();
                 next_window.Show();
                 this.Close();
-            } 
-            else if ( State.User != null && State.User.newUser == false)
-            {
-                var next_window = new AdaptationWindow();
-                State.Rentals = API.GetRentedMovies(State.User);
-                next_window.Show();
             }
             // Finns flera användare med samma username, password fast olika IDs, vem loggar in?(man är inte inloggad?)
             else
