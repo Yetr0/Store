@@ -98,5 +98,28 @@ namespace DatabaseConnection
             ctx.Add(new WatchList { Customer = customer, Movie = movie });
             return ctx.SaveChanges() == 1;
         }
+
+        public static List<Movie> GetMoviesByGenre(int id)
+        {
+            List<Movie> movies = new List<Movie>();
+            using var ctx = new Context();
+            var rentals = ctx.Genres.FirstOrDefault(x => x.Id == id).Movies.ToArray();
+            for (int i = 0; i < rentals.Length; i++)
+            {
+                movies.Add(rentals[i]);
+            }
+            return movies;
+        }
+        /*public static List<Movie> GetMoviesByGenre(Genre genre)
+        {
+            List<Movie> movies = new List<Movie>();
+            using var ctx = new Context();
+            var rentals = ctx.Genres.FirstOrDefault(x => x == genre).Movies.ToArray();
+            for (int i = 0; i < rentals.Length; i++)
+            {
+                movies.Add(rentals[i]);
+            }
+            return movies;
+        }*/
     }
 }

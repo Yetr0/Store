@@ -26,7 +26,17 @@ namespace Store
             StackPanel.MouseWheel += rented.Scroller_MouseWheel ;*/
 
             //this.MouseWheel += Scroller_MouseWheel;
-
+            List<int> ints = new List<int>();
+            while (ints.Count <= 3)
+            {
+                Random rnd = new Random();
+                var num = rnd.Next(1, 12);
+                if (!ints.Contains(num))
+                {
+                    ints.Add(num);
+                }
+            }
+            State.Genres = ints;
             InitializeComponent();
         }
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)

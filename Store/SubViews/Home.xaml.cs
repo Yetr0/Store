@@ -23,6 +23,29 @@ namespace Store.SubViews
         {
             InitializeComponent();
             this.MouseWheel += Scroller_MouseWheel;
+            if (State.Rentals.Count > 0)
+            {
+                RowDefinition rd = new RowDefinition();
+                rd.MaxHeight = 150;
+                grid.RowDefinitions.Add(rd);
+                var rented = new RentedMovies();
+                grid.Children.Add(rented);
+                Grid.SetRow(rented, 0);
+            }
+
+            int i = 1;
+
+            while (State.Genres.Count > 0)
+            {
+                    RowDefinition rd = new RowDefinition();
+                    rd.MaxHeight = 140;
+                    grid.RowDefinitions.Add(rd);
+                    var action = new ActionMovies();
+                    grid.Children.Add(action);
+                    Grid.SetRow(action, i);
+                    i++;
+            }
+
         }
 
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)

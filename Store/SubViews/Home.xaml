@@ -8,18 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <ScrollViewer x:Name="Scroller">
-        <Grid x:Name="Grid">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="150" />
-                <RowDefinition Height="150" />
-                <RowDefinition Height="150" />
-                <RowDefinition Height="150" />
-
-            </Grid.RowDefinitions>
-            <sub:RentedMovies x:Name="RentedMovies"></sub:RentedMovies>
-            <sub:RentedMovies Grid.Row="1" x:Name="RentedMovies1"></sub:RentedMovies>
-            <sub:RentedMovies Grid.Row="2" x:Name="RentedMovies2"></sub:RentedMovies>
-            <sub:RentedMovies Grid.Row="3" x:Name="RentedMovies3"></sub:RentedMovies>
+        <Grid x:Name="grid">
         </Grid>
     </ScrollViewer>
 </UserControl>
