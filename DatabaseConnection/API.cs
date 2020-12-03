@@ -19,6 +19,13 @@ namespace DatabaseConnection
                 genres = ctx.Genres.ToList();
             return genres;
         }
+        public static Genre getGenre(string genreName)
+        {
+            using var ctx = new Context();
+            Genre genre = new Genre();
+            genre = ctx.Genres.Single(x => x.GenreName == genreName);
+            return genre;
+        }
 
         public static List<Movie> GetRentedMovies(Customer user)
         {
@@ -74,6 +81,15 @@ namespace DatabaseConnection
             {
                 Console.WriteLine("Detta gick fel" + e);
             }
+        }
+        public static Genre GetFavoriteGenre(string name)
+        {
+            using var ctx = new Context();
+            Customer cust = new Customer();
+
+            return cust.favoriteGenre = ctx.Genres.First(x => x.GenreName == name);
+
+
         }
         public static void setNewUserTrue(Customer cust)
         {

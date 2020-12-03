@@ -38,7 +38,7 @@
                         <Button Content="Movies" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
                     </Viewbox>
                     <Viewbox Grid.Column="7" Grid.Row="0">
-                        <Button Content="Account" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
+                        <Button Content="Account" Click="Account_Click" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
                     </Viewbox>
                 </Grid>
             </Grid>

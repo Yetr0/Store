@@ -70,5 +70,10 @@ namespace Store
             next_window.Show();
         }
 
+        private void Account_Click(object sender, RoutedEventArgs e)
+        {
+            var next_window = new AccountWindow();
+            next_window.Show();
+        }
     }
 }
