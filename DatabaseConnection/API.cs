@@ -12,7 +12,13 @@ namespace DatabaseConnection
             using var ctx = new Context();
             return ctx.Movies.OrderBy(m => m.Title).Skip(a).Take(b).ToList();
         }
-
+        public static List<Genre> GetGenreList()
+        {
+            using var ctx = new Context();
+            List<Genre> genres = new List<Genre>(); 
+                genres = ctx.Genres.ToList();
+            return genres;
+        }
 
         public static List<Movie> GetRentedMovies(Customer user)
         {
@@ -40,18 +46,34 @@ namespace DatabaseConnection
             }
         }
 
-        public static void AddCustomerByName(string name, string password)
+        public static void AddCustomer(string name, string password, string address, string email, int phonenumber)
         {
             using var ctx = new Context();
             try
             {
-                ctx.AddRange(new Customer() { Name = name, Password = password });
+                ctx.AddRange(new Customer() { Name = name, Password = password,
+                    Address = address, Email = email, PhoneNumber = phonenumber});
             }
             catch(Exception e)
             {
                 Console.WriteLine("Detta gick fel:" + e);
             }
             ctx.SaveChanges();
+        }
+        public static void SetFavoriteGenre(Customer cust, string genreName)
+        {
+            using var ctx = new Context();
+            try
+            {
+                cust.favoriteGenre = ctx.Genres.First(x => x.GenreName == genreName);
+
+                ctx.Customers.Update(cust);
+                ctx.SaveChanges();
+            }
+            catch (Exception e )
+            {
+                Console.WriteLine("Detta gick fel" + e);
+            }
         }
         public static void setNewUserTrue(Customer cust)
         {

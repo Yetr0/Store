@@ -21,6 +21,17 @@ namespace Store
         public AddUserWindow()
         {
             InitializeComponent();
+
+            List<Genre> genres = new List<Genre>();
+            genres = API.GetGenreList();
+
+            //API hämta genres loopar och lägger dom i Genrebox listan
+            // Sen i Addin_click lägg till för en användare
+            for (int i = 0; i < genres.Count; i++)
+            {
+                GenreBox.Items.Add(genres[i].GenreName);
+            }
+
         }
         private void AddIn_Click(object sender, RoutedEventArgs e)
           {
@@ -33,8 +44,15 @@ namespace Store
                 MessageBox.Show("Användaren finns redan");
             } else
             {
+                int phonenummer = Convert.ToInt32(PField.Text.Trim());
+                API.AddCustomer(UserField.Text.Trim(), PWField.Password,
+                                AddressField.Text.Trim(), EmailField.Text.Trim(), phonenummer);
 
-                API.AddCustomerByName(UserField.Text.Trim(), PWField.Password);
+                State.User = API.GetCustomerByName(UserField.Text.Trim(), PWField.Password);
+
+                String choosenGenre = GenreBox.SelectedItem.ToString();
+                API.SetFavoriteGenre(State.User, choosenGenre);
+                // API.AddGenre()
                 var new_window = new LoginWindow();
                 new_window.Show();
                 this.Close();
