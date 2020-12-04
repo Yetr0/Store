@@ -80,13 +80,5 @@ namespace Store
         {
             MessageBox.Show("You can't watch this movie.");
         }
-
-        private void AddToWatchList(object sender, RoutedEventArgs e)
-        {
-            if (API.AddToWatchList(State.User, State.Pick))
-            {
-                MessageBox.Show("Sucessfully added Movie to watch list");
-            }
-        }
     }
 }

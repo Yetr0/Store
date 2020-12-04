@@ -15,7 +15,6 @@ namespace DatabaseConnection
                 ctx.RemoveRange(ctx.Sales);
                 ctx.RemoveRange(ctx.Movies);
                 ctx.RemoveRange(ctx.Customers);
-                ctx.RemoveRange(ctx.WatchLists);
 
 
                 Customer customer = new Customer();

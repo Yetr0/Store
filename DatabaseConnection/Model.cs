@@ -16,7 +16,6 @@ namespace DatabaseConnection
         public string Password { get; set; }
         public bool NewUser { get; set; }
         public virtual Genre favoriteGenre { get; set; }
-        public virtual List<WatchList> WatchList { get; set; }
 
      }
     public class Movie
@@ -42,13 +41,6 @@ namespace DatabaseConnection
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public virtual Customer Customer { get; set; }
-        public virtual Movie Movie { get; set; }
-    }
-
-    public class WatchList
-    {
-        public int Id { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Movie Movie { get; set; }
     }

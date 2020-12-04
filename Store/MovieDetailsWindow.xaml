@@ -63,10 +63,6 @@
         <Viewbox Grid.Column="6" Grid.Row="8">
             <TextBlock Text="$9.99" Name="Price" Foreground="White"/>
         </Viewbox>
-        <Button Grid.Column="7" Grid.ColumnSpan="4" Grid.Row="8" Name="MainButton" Margin="5 10" Background="Red" Foreground="White" FontSize="20" FontFamily="Arail" Click="Button_Click_1"></Button>
-        <Viewbox Grid.Column="7" Grid.ColumnSpan="4" Grid.Row="5">
-            <TextBlock Text="Add to watchlist" Foreground="White"/>
-        </Viewbox>
-        <Button Grid.Column="9" Grid.Row="6" Background="Transparent" BorderThickness="0" Content="+" Foreground="White" FontSize="20" Margin="5" Click="AddToWatchList"></Button>
+        <Button Grid.Column="7" Grid.ColumnSpan="4" Grid.Row="8" Name="MainButton" Margin="5 10" Background="Red" Foreground="White" FontSize="20" FontFamily="Arail" Click="Button_Click_1"></Button
     </Grid>
 </Window>
