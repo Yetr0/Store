@@ -17,9 +17,9 @@ namespace Store
     /// <summary>
     /// Interaction logic for RentedMoviesWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RentedMoviesWindow : Window
     {
-        public MainWindow()
+        public RentedMoviesWindow()
         {
 
             /*RentedMoviesWindow rented = new RentedMoviesWindow();
