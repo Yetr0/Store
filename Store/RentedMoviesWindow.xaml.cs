@@ -51,6 +51,11 @@ namespace Store
             next_window.Show();
         }
 
+        private void Account_Click(object sender, RoutedEventArgs e)
+        {
+            var next_window = new AccountWindow();
+            next_window.Show();
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Home.Visibility = Visibility.Hidden;
@@ -64,12 +69,6 @@ namespace Store
             Home.Visibility = Visibility.Visible;
             Movies.Visibility = Visibility.Hidden;
         }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         /*public void Scroller_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var a = -1 * e.Delta;
