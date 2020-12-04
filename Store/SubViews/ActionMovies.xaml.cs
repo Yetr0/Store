@@ -20,19 +20,19 @@ namespace Store.SubViews
     /// </summary>
     public partial class ActionMovies : UserControl
     {
+        public List<Movie> movies = new List<Movie>();
         public ActionMovies()
         {
             InitializeComponent();
-
-            State.Actions = API.GetMoviesByGenre(State.Genres[0]);
+            movies = API.GetMoviesByGenre(State.Genres[0]);
             State.Genres.RemoveAt(0);
-            title.Text = State.Actions[0].Genres[0].GenreName;
-            for (int i = 0; i < State.Actions.Count; i++)
+            title.Text = movies[0].Genres[0].GenreName;
+            for (int i = 0; i < movies.Count; i++)
             {
                 ColumnDefinition cd = new ColumnDefinition();
                 cd.MaxWidth = 100;
                 TheGrid1.ColumnDefinitions.Add(cd);
-                var movie = State.Actions[i];
+                var movie = movies[i];
                 var image = new Image() { };
                 image.Cursor = Cursors.Hand;
                 image.MouseUp += Image_MouseUp;
@@ -48,8 +48,7 @@ namespace Store.SubViews
             var x = Grid.GetColumn(sender as UIElement);
 
             int i = x;
-
-            State.Pick = State.Actions[i];
+            State.Pick = movies[i];
             var next_window = new MovieDetailsWindow();
             next_window.Show();
         }
