@@ -51,6 +51,12 @@ namespace Store
             next_window.Show();
         }
 
+        private void Account_Click(object sender, RoutedEventArgs e)
+        {
+            var next_window = new AccountWindow();
+            next_window.Show();
+        }
+
         /*public void Scroller_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var a = -1 * e.Delta;
