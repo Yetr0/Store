@@ -63,6 +63,6 @@
         <Viewbox Grid.Column="6" Grid.Row="8">
             <TextBlock Text="$9.99" Name="Price" Foreground="White"/>
         </Viewbox>
-        <Button Grid.Column="7" Grid.ColumnSpan="4" Grid.Row="8" Name="MainButton" Margin="5 10" Background="Red" Foreground="White" FontSize="20" FontFamily="Arail" Click="Button_Click_1"></Button
+        <Button Grid.Column="7" Grid.ColumnSpan="4" Grid.Row="8" Name="MainButton" Margin="5 10" Background="Red" Foreground="White" FontSize="20" FontFamily="Arail" Click="Button_Click_1"></Button>
     </Grid>
 </Window>
