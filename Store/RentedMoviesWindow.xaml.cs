@@ -21,11 +21,6 @@ namespace Store
     {
         public RentedMoviesWindow()
         {
-
-            /*RentedMoviesWindow rented = new RentedMoviesWindow();
-            StackPanel.MouseWheel += rented.Scroller_MouseWheel ;*/
-
-            //this.MouseWheel += Scroller_MouseWheel;
             List<int> ints = new List<int>();
             while (ints.Count <= 3)
             {
@@ -69,13 +64,6 @@ namespace Store
             Home.Visibility = Visibility.Visible;
             Movies.Visibility = Visibility.Hidden;
         }
-        /*public void Scroller_MouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            var a = -1 * e.Delta;
-            var offset = Scroller.VerticalOffset;
-            Scroller.ScrollToHorizontalOffset(offset + a);
-            MessageBox.Show("Working");
-        }*/
 
     }
 }
