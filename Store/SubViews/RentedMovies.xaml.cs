@@ -24,7 +24,9 @@ namespace Store.SubViews
 
             for (int i = 0; i < State.Rentals.Count; i++)
             {
-                TheGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                ColumnDefinition cd = new ColumnDefinition();
+                cd.MaxWidth = 100;
+                TheGrid.ColumnDefinitions.Add(cd);
                 var movie = State.Rentals[i];
                 var image = new Image() { };
                 image.Cursor = Cursors.Hand;

@@ -29,7 +29,9 @@ namespace Store.SubViews
             title.Text = State.Actions[0].Genres[0].GenreName;
             for (int i = 0; i < State.Actions.Count; i++)
             {
-                TheGrid1.ColumnDefinitions.Add(new ColumnDefinition());
+                ColumnDefinition cd = new ColumnDefinition();
+                cd.MaxWidth = 100;
+                TheGrid1.ColumnDefinitions.Add(cd);
                 var movie = State.Actions[i];
                 var image = new Image() { };
                 image.Cursor = Cursors.Hand;

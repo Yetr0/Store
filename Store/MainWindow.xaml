@@ -3,30 +3,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sub="clr-namespace:Store.SubViews"
         xmlns:local="clr-namespace:Store"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <ScrollViewer>
-        <Grid Name="MovieGrid" Background="LightSteelBlue" ShowGridLines="True">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="140" />
-                <RowDefinition Height="140" />
-                <RowDefinition Height="140" />
-                <RowDefinition Height="140" />
-                <RowDefinition Height="140" />
-                <RowDefinition Height="140" />
-                <RowDefinition Height="140" />
-                <RowDefinition Height="140" />
-                <RowDefinition Height="140" />
-                <RowDefinition Height="140" />
-            </Grid.RowDefinitions>
+        Title="Rented Movies" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid Background="black">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+
+                <Viewbox Grid.Column="1" Grid.Row="0">
+                    <TextBlock Text="Netflix 2.0" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"></TextBlock>
+                </Viewbox>
+                <Viewbox Grid.Column="3" Grid.Row="0">
+                    <Button Content="Home" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0" Click="Button_Click_1"></Button>
+                </Viewbox>
+                <Viewbox Grid.Column="5" Grid.Row="0">
+                    <Button Content="Movies" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0" Click="Button_Click"></Button>
+                </Viewbox>
+                <Viewbox Grid.Column="7" Grid.Row="0">
+                    <Button Content="Account" FontSize="5" Background="Transparent" Foreground="White" BorderThickness="0" Click="Button_Click_2"></Button>
+                </Viewbox>
+            </Grid>
         </Grid>
-    </ScrollViewer>
+
+        <Grid Name="MovieGrid" Grid.Row="1">
+            <sub:Home Visibility="Visible" x:Name="Home"></sub:Home>
+            <sub:Movies Visibility="Hidden" x:Name="Movies"></sub:Movies>
+        </Grid>
+
+    </Grid>
 </Window>

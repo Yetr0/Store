@@ -1,8 +1,7 @@
-﻿using System;
+﻿using DatabaseConnection;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,69 +9,74 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DatabaseConnection;
+using Store.SubViews;
 
 namespace Store
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RentedMoviesWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            InitializeComponent();
 
-            // USER.ID ska ha en egen rent lista.
-            State.Movies = API.GetMovieSlice(0, 30);
-            for (int y = 0; y < MovieGrid.RowDefinitions.Count; y++)
+            /*RentedMoviesWindow rented = new RentedMoviesWindow();
+            StackPanel.MouseWheel += rented.Scroller_MouseWheel ;*/
+
+            //this.MouseWheel += Scroller_MouseWheel;
+            List<int> ints = new List<int>();
+            while (ints.Count <= 3)
             {
-                for (int x = 0; x < MovieGrid.ColumnDefinitions.Count; x++)
+                Random rnd = new Random();
+                var num = rnd.Next(1, 12);
+                if (!ints.Contains(num))
                 {
-                    int i = y * MovieGrid.ColumnDefinitions.Count + x;
-                    if (i < State.Movies.Count)
-                    {
-                        var movie = State.Movies[i];
-
-                        try
-                        {
-                            var image = new Image() { };
-                            image.Cursor = Cursors.Hand;
-                            image.MouseUp += Image_MouseUp;
-                            image.HorizontalAlignment = HorizontalAlignment.Center;
-                            image.VerticalAlignment = VerticalAlignment.Center;
-                            image.Source = new BitmapImage(new Uri(movie.ImageURL));
-                            //image.Height = 120;
-                            image.Margin = new Thickness(4, 4, 4, 4);
-
-                            MovieGrid.Children.Add(image);
-                            Grid.SetRow(image, y);
-                            Grid.SetColumn(image, x);
-                        }
-                        catch (Exception e) when
-                            (e is ArgumentNullException ||
-                             e is System.IO.FileNotFoundException ||
-                             e is UriFormatException)
-                        {
-                            continue;
-                        }
-                    }
+                    ints.Add(num);
                 }
             }
+            State.Genres = ints;
+            InitializeComponent();
         }
-
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)
         {
             var x = Grid.GetColumn(sender as UIElement);
-            var y = Grid.GetRow(sender as UIElement);
+            var y = Grid.GetRow(sender as UIElement) - 1;
 
             int i = y * MovieGrid.ColumnDefinitions.Count + x;
 
-                State.Pick = State.Movies[i];
-                    var next_window = new MovieDetailsWindow();
-                    next_window.Show();
+            State.Pick = State.Rentals[i];
+            var next_window = new MovieDetailsWindow();
+            next_window.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Home.Visibility = Visibility.Hidden;
+            Movies.Visibility = Visibility.Visible;
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            Home.Visibility = Visibility.Visible;
+            Movies.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /*public void Scroller_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var a = -1 * e.Delta;
+            var offset = Scroller.VerticalOffset;
+            Scroller.ScrollToHorizontalOffset(offset + a);
+            MessageBox.Show("Working");
+        }*/
+
     }
 }

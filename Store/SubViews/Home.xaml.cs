@@ -38,7 +38,7 @@ namespace Store.SubViews
             while (State.Genres.Count > 0)
             {
                     RowDefinition rd = new RowDefinition();
-                    rd.MaxHeight = 140;
+                    rd.MaxHeight = 150;
                     grid.RowDefinitions.Add(rd);
                     var action = new ActionMovies();
                     grid.Children.Add(action);

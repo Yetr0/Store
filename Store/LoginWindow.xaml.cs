@@ -31,7 +31,7 @@ namespace Store
             if (State.User != null)
             {
                 State.Rentals = API.GetRentedMovies(State.User);
-                var next_window = new RentedMoviesWindow();
+                var next_window = new MainWindow();
                 next_window.Show();
                 this.Close();
             }
