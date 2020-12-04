@@ -21,29 +21,43 @@ namespace Store
         public AccountWindow()
         {
             InitializeComponent();
-
-            UsernameBlock.Text = UsernameBlock.Text + State.User.Name;
-            AddressBlock.Text  = AddressBlock.Text + State.User.Address;
-            EmailBlock.Text    = EmailBlock.Text + State.User.Email;
-            PhoneBlock.Text    = PhoneBlock.Text + State.User.PhoneNumber;
+            Genre favgenre = API.GetGenre(State.User);
 
 
-            //Genre favgenre = new Genre();
-            //favgenre = State.User.favoriteGenre;
-            //GenreBlock.Text = GenreBlock.Text + ": " + favgenre.GenreName;
 
-            //var favgenre = API.getGenre(State.User.favoriteGenre.GenreName);
-            //GenreBlock.Text = GenreBlock.Text + ": " + favgenre.GenreName;
+            ComboChange.Items.Add(UsernameBlock.Text);
+            ComboChange.Items.Add(AddressBlock.Text);
+            ComboChange.Items.Add(EmailBlock.Text);
+            ComboChange.Items.Add(PhoneBlock.Text);
+            ComboChange.Items.Add(GenreBlock.Text);
 
-            //API.GetFavoriteGenre(State.User.favoriteGenre.GenreName);
+            GenreBlock.Text = GenreBlock.Text + ": " + favgenre.GenreName;
+            UsernameBlock.Text = UsernameBlock.Text + ": " + State.User.Name;
+            AddressBlock.Text = AddressBlock.Text + ": " + State.User.Address;
+            EmailBlock.Text = EmailBlock.Text + ": " + State.User.Email;
+            PhoneBlock.Text = PhoneBlock.Text + ": " + State.User.PhoneNumber;
 
-            //State.Favorite = API.getGenre("Comedy");
+
+
+
 
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            if (ComboChange.SelectedItem.Equals("Username"))
+                {
+                API.UpdateUsername(State.User, State.User.Name, ChangeBox.Text);
+                State.User.Name = ChangeBox.Text;
+            }
+
+            this.Close();
+            
         }
     }
 }
