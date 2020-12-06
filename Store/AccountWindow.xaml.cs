@@ -22,6 +22,15 @@ namespace Store
         {
             InitializeComponent();
             Genre favgenre = API.GetGenre(State.User);
+            List<Genre> genres = new List<Genre>();
+            genres = API.GetGenreList();
+
+            //API hämta genres loopar och lägger dom i Genrebox listan
+            // Sen i Addin_click lägg till för en användare
+            for (int i = 0; i < genres.Count; i++)
+            {
+                GenreBox.Items.Add(genres[i].GenreName);
+            }
 
 
 
@@ -54,6 +63,29 @@ namespace Store
                 {
                 API.UpdateUsername(State.User, State.User.Name, ChangeBox.Text);
                 State.User.Name = ChangeBox.Text;
+            }
+            else if(ComboChange.SelectedItem.Equals("Address"))
+            {
+                API.UpdateAddress(State.User, State.User.Address, ChangeBox.Text);
+                State.User.Address = ChangeBox.Text;
+            }
+            else if (ComboChange.SelectedItem.Equals("Email"))
+            {
+                API.UpdateAddress(State.User, State.User.Email, ChangeBox.Text);
+                State.User.Email = ChangeBox.Text;
+            }
+            else if (ComboChange.SelectedItem.Equals("Phone number"))
+            {
+                int intnumber = Convert.ToInt32(ChangeBox.Text);
+                API.UpdatePnumber(State.User, State.User.PhoneNumber, intnumber);
+                State.User.PhoneNumber = intnumber;
+            }
+            else if (ComboChange.SelectedItem.Equals("Favorite genre"))
+            {
+                String choosenGenre = GenreBox.SelectedItem.ToString();
+                API.SetFavoriteGenre(State.User, choosenGenre);
+                State.User.favoriteGenre.GenreName = choosenGenre;
+                //Måste starta om för att se skillnaden
             }
 
             this.Close();

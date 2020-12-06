@@ -82,6 +82,51 @@ namespace DatabaseConnection
                 Console.WriteLine("Detta gick fel" + e);
             }
         }
+        public static void UpdateAddress(Customer cust, string address, string addressUpdate)
+        {
+            using var ctx = new Context();
+            try
+            {
+                cust = ctx.Customers.First(x => x.Address == address);
+                cust.Name = addressUpdate;
+                ctx.Customers.Update(cust);
+                ctx.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Detta gick fel" + e);
+            }
+        }
+        public static void UpdateEmail(Customer cust, string email, string emailUpdate)
+        {
+            using var ctx = new Context();
+            try
+            {
+                cust = ctx.Customers.First(x => x.Email == email);
+                cust.Name = emailUpdate;
+                ctx.Customers.Update(cust);
+                ctx.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Detta gick fel" + e);
+            }
+        }
+        public static void UpdatePnumber(Customer cust, int pnumber, int pNumberUpdate)
+        {
+            using var ctx = new Context();
+            try
+            {
+                cust = ctx.Customers.First(x => x.PhoneNumber == pnumber);
+                cust.PhoneNumber = pNumberUpdate;
+                ctx.Customers.Update(cust);
+                ctx.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Detta gick fel" + e);
+            }
+        }
         public static void SetFavoriteGenre(Customer cust, string genreName)
         {
             using var ctx = new Context();

@@ -33,9 +33,10 @@
         <TextBlock Name="PhoneBlock" Text="Phone number" Grid.Row="5" Height="30" Width="290" HorizontalAlignment="Left" Foreground="White" Margin="10,1,0,1"/>
         <TextBlock Name="PasswordBlock" Grid.Row="5" Height="30" Width="120" HorizontalAlignment="Left" Foreground="White" Margin="10,1,0,0"/>
         <Button Content="Back" Click="Back_Click" Height="20" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="10" Margin="0,0,0,10"/>
-        <TextBlock Name="GenreBlock" Text="Favorite genre" HorizontalAlignment="Left" Foreground="White" Margin="10,1,0,0" Grid.Row="6" VerticalAlignment="Top" Width="290"/>
-        <ComboBox Name="ComboChange" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="7" Text="New Password" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="ChangeBox" Grid.Row="8" HorizontalAlignment="Left" Height="20" Width="120" Margin="10,0,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="GenreBlock" Text="Favorite genre" HorizontalAlignment="Left" Foreground="White" Margin="10,1,0,0" Grid.Row="8" VerticalAlignment="Top" Width="290"/>
+        <ComboBox Name="ComboChange" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="6" Text="New Password" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="ChangeBox" Grid.Row="7" HorizontalAlignment="Left" Height="20" Width="120" Margin="10,0,0,0" VerticalAlignment="Top"/>
         <Button Content="Update" Click="Update_Click" HorizontalAlignment="Center" Margin="30,0,0,0" Grid.Row="7" VerticalAlignment="Top"/>
+        <ComboBox Name="GenreBox" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
