@@ -166,10 +166,14 @@ namespace DatabaseConnection
             {
                 // Här säger jag åt contextet att inte oroa sig över innehållet i dessa records.
                 // Om jag inte gör detta så kommer den att försöka updatera databasens Id och cracha.
-                ctx.Entry(customer).State = EntityState.Unchanged;
-                ctx.Entry(movie).State = EntityState.Unchanged;
 
-                ctx.Add(new Rental() { Date = DateTime.Now, Customer = customer, Movie = movie });
+                ctx.Entry(customer).State = EntityState.Unchanged;
+                movie.Genres = null;
+                ctx.Entry(movie).State = EntityState.Unchanged;
+                
+                var rental = new Rental() { Date = DateTime.Now, Customer = customer, Movie = movie };
+                ctx.Entry(rental).State = EntityState.Unchanged;
+                ctx.Add(rental);
                 return ctx.SaveChanges() == 1;
             }
             catch(DbUpdateException e)
