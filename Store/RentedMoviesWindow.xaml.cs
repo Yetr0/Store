@@ -55,14 +55,17 @@ namespace Store
         {
             Home.Visibility = Visibility.Hidden;
             Movies.Visibility = Visibility.Visible;
-
         }
-
+        public void rerender()
+        {
+            var window = new RentedMoviesWindow();
+            window.Show();
+            this.Close();
+        }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
-            Home.Visibility = Visibility.Visible;
-            Movies.Visibility = Visibility.Hidden;
+            rerender();
         }
 
     }

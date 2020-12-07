@@ -171,9 +171,7 @@ namespace DatabaseConnection
                 movie.Genres = null;
                 ctx.Entry(movie).State = EntityState.Unchanged;
                 
-                var rental = new Rental() { Date = DateTime.Now, Customer = customer, Movie = movie };
-                ctx.Entry(rental).State = EntityState.Unchanged;
-                ctx.Add(rental);
+                ctx.Add(new Rental() { Date = DateTime.Now, Customer = customer, Movie = movie });
                 return ctx.SaveChanges() == 1;
             }
             catch(DbUpdateException e)
